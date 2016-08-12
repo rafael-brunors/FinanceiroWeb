@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory name="">
+  <!-- Configuração da conexão com o banco MySQL e dialeto 
+ 
+		-->
+  <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+  <!-- REMOVIDA TODAS AS OUTRAS PROPRIEDADES. ESTAS ESTÃO EM CONTEXT E WEB.XML 
+  
+ 
+ Configuração da conexão com o banco Postgres e dialeto 
+ 
+		<property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+		<property name="connection.driver_class">org.postgresql.Driver</property>
+		<property name="connection.url">jdbc:postgresql://localhost:5432/agenda</property>
+		<property name="connection.username">postgres</property>
+		<property name="connection.password">sisnema</property>
+		
+ 
+		
+ ADICIONAR ESTA PROPRIEDADE -->
+  <property name="connection.datasource">java:/comp/env/jdbc/FinanceiroDB</property>
+  <property name="hbm2ddl.auto">update</property>
+  <property name="hibernate.show_sql">true</property>
+  <property name="hibernate.format_sql">true</property>
+  <property name="hibernate.generate_statistics">true</property>
+  <!-- REMOVIDA TODAS AS OUTRAS PROPRIEDADES. AGORA ESTAS ESTÃO EM CONTEXT  -->
+  <property name="current_session_context_class">thread</property>
+  <mapping class="financeiro.model.Usuario"/>
+  <mapping class="financeiro.model.Conta"/>
+  <mapping class="financeiro.model.Categoria"/>
+  <mapping class="financeiro.model.Lancamento"/>
+  <mapping class="financeiro.model.Cheque"/>
+  <mapping class="financeiro.model.Acao"/>
+ </session-factory>
+</hibernate-configuration>
